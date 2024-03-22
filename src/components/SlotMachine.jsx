@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Heading, Text, Button, Image } from "@chakra-ui/react";
 
-const SlotMachine = ({ name, image }) => {
+const SlotMachine = ({ name, image, balance, setBalance }) => {
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState(null);
 
@@ -9,7 +9,10 @@ const SlotMachine = ({ name, image }) => {
     setSpinning(true);
     setTimeout(() => {
       setSpinning(false);
-      setResult(Math.random() < 0.5 ? "Win!" : "Lose!");
+      const didWin = Math.random() < 0.3;
+      const winnings = didWin ? Math.random() * 100 : 0;
+      setBalance(balance + winnings);
+      setResult(didWin ? `Win $${winnings.toFixed(2)}!` : "Lose!");
     }, 3000);
   };
 
@@ -20,7 +23,7 @@ const SlotMachine = ({ name, image }) => {
       <Button onClick={spin} isLoading={spinning} colorScheme="blue" mt={4}>
         {spinning ? "Spinning..." : "Spin"}
       </Button>
-      {result && <Text mt={2}>{result === "Win!" ? `Congratulations! You won $${(Math.random() * 100).toFixed(2)}!` : "Try Again!"}</Text>}
+      {result && <Text mt={2}>{result}</Text>}
     </Box>
   );
 };
