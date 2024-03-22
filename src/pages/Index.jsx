@@ -78,22 +78,7 @@ const Index = () => {
         <SlotMachine name="Tombstone RIP" image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjB0b21ic3RvbmUlMjByaXB8ZW58MHx8fHwxNzExMDcxNDYwfDA&ixlib=rb-4.0.3&q=80&w=1080" />
       </Grid>
 
-      <Box mb={8}>
-        <Heading size="md" mb={4}>
-          Deposit Funds
-        </Heading>
-        <Button leftIcon={<FaCoins />} onClick={onOpen} colorScheme="green" mr={4}>
-          Cash
-        </Button>
-        <Button leftIcon={<FaCreditCard />} onClick={onOpen} colorScheme="blue" mr={4}>
-          Credit Card
-        </Button>
-        <Button leftIcon={<FaBitcoin />} onClick={onOpen} colorScheme="orange">
-          Crypto
-        </Button>
-      </Box>
-
-      <PaymentModal isOpen={isOpen} onClose={onClose} />
+      
     </Box>
   );
 };

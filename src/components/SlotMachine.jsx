@@ -20,7 +20,7 @@ const SlotMachine = ({ name, image }) => {
       <Button onClick={spin} isLoading={spinning} colorScheme="blue" mt={4}>
         {spinning ? "Spinning..." : "Spin"}
       </Button>
-      {result && <Text mt={2}>{result}</Text>}
+      {result && <Text mt={2}>{result === "Win!" ? `Congratulations! You won $${(Math.random() * 100).toFixed(2)}!` : "Try Again!"}</Text>}
     </Box>
   );
 };
