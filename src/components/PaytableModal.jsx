@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Table, Thead, Tbody, Tr, Th, Td, Button } from "@chakra-ui/react";
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Button, Heading, Text, HStack } from "@chakra-ui/react";
 
 const PaytableModal = ({ isOpen, onClose, paytable }) => {
   return (
@@ -9,22 +9,17 @@ const PaytableModal = ({ isOpen, onClose, paytable }) => {
         <ModalHeader>Paytable</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Table>
-            <Thead>
-              <Tr>
-                <Th>Combination</Th>
-                <Th>Payout</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {paytable.map(([combination, value], index) => (
-                <Tr key={index}>
-                  <Td>{combination}</Td>
-                  <Td>{value}</Td>
-                </Tr>
-              ))}
-            </Tbody>
-          </Table>
+          <Heading size="md" mb={4}>
+            Winning Combinations
+          </Heading>
+          {paytable.map(([combination, value], index) => (
+            <HStack key={index} spacing={8} mb={2}>
+              <Text fontSize="xl">{combination}</Text>
+              <Text fontSize="xl" fontWeight="bold">
+                {value}x
+              </Text>
+            </HStack>
+          ))}
         </ModalBody>
         <ModalFooter>
           <Button colorScheme="blue" onClick={onClose}>

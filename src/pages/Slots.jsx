@@ -9,7 +9,11 @@ const Slots = ({ balance, setBalance }) => {
       <Nav />
       <Heading mb={8}>Slot Machines</Heading>
 
-      <Grid templateColumns="repeat(5, 1fr)" gap={6} mb={8}>
+      <Heading size="lg" mb={8}>
+        Choose a Slot Machine
+      </Heading>
+      <Text mb={8}>We have a variety of engaging slot machines to play. Select one below and start spinning!</Text>
+      <Grid templateColumns="repeat(3, 1fr)" gap={8} mb={12}>
         <SlotMachine name="Esqueleto Explosivo" image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjBlc3F1ZWxldG8lMjBleHBsb3Npdm98ZW58MHx8fHwxNzExMDcxNDU4fDA&ixlib=rb-4.0.3&q=80&w=1080" />
         <SlotMachine name="Money Train 2" image="https://images.unsplash.com/photo-1502920514313-52581002a659?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjBtb25leSUyMHRyYWluJTIwMnxlbnwwfHx8fDE3MTEwNzE0NTl8MA&ixlib=rb-4.0.3&q=80&w=1080" />
         <SlotMachine name="Punk Rocker" image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjBwdW5rJTIwcm9ja2VyfGVufDB8fHx8MTcxMTA3MTQ1OXww&ixlib=rb-4.0.3&q=80&w=1080" />

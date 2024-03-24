@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Grid } from "@chakra-ui/react";
+import { Box, Text, Grid, Heading } from "@chakra-ui/react";
 
 const SlotResult = ({ result }) => {
   return (
@@ -15,9 +15,17 @@ const SlotResult = ({ result }) => {
           </Box>
         ))}
       </Grid>
-      <Text mt={4} fontWeight="bold">
-        {result.message}
-      </Text>
+      <Box mt={4}>
+        {result.winnings > 0 ? (
+          <Heading size="lg" color="green.500">
+            You won ${result.winnings}!
+          </Heading>
+        ) : (
+          <Heading size="lg" color="red.500">
+            Sorry, you lost. Spin again!
+          </Heading>
+        )}
+      </Box>
     </Box>
   );
 };

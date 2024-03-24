@@ -42,7 +42,6 @@ const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGa
   };
 
   const spinReels = () => {
-    
     const reels = [];
     for (let i = 0; i < 5; i++) {
       const reel = [];
@@ -83,20 +82,24 @@ const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGa
 
   return (
     <Box p={4} borderWidth={1} borderRadius="lg">
-      <HStack justify="space-between">
-        <Heading size="md">{name}</Heading>
-        <IconButton icon={<FaQuestion />} onClick={onOpen} aria-label="Paytable" variant="ghost" />
+      <Box>
+        <Image src={image} alt={name} mt={4} borderRadius="lg" />
+        <Heading size="lg" mt={4}>
+          {name}
+        </Heading>
+      </Box>
+      <Button leftIcon={<FaQuestion />} onClick={onOpen} mt={4} size="lg" colorScheme="blue">
+        View Paytable
+      </Button>
+      <HStack mt={4} mb={4} justify="center">
+        <Button leftIcon={<FaMinus />} onClick={() => changeBet(-1)} size="lg" />
+        <Heading size="lg">${bet}</Heading>
+        <Button leftIcon={<FaPlus />} onClick={() => changeBet(1)} size="lg" />
       </HStack>
-      <Image src={image} alt={name} mt={4} />
-      <HStack mt={4} mb={2}>
-        <IconButton icon={<FaMinus />} onClick={() => changeBet(-1)} />
-        <Text fontWeight="bold">${bet}</Text>
-        <IconButton icon={<FaPlus />} onClick={() => changeBet(1)} />
-        <Button onClick={() => setBet(maxBet)} size="sm">
-          Max Bet
-        </Button>
-      </HStack>
-      <Button onClick={spin} isLoading={spinning} colorScheme="blue" width="100%">
+      <Button onClick={() => setBet(maxBet)} size="lg" mb={4}>
+        Max Bet
+      </Button>
+      <Button onClick={spin} isLoading={spinning} colorScheme="green" width="100%" size="lg">
         {spinning ? "Spinning..." : freeSpins > 0 ? `Free Spins: ${freeSpins}` : "Spin"}
       </Button>
       {result && <SlotResult result={result} />}
