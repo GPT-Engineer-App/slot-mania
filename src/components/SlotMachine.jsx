@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, Button, Image, HStack, IconButton } from "@chakra-ui/react";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import { Box, Heading, Text, Button, Image, HStack, IconButton, useDisclosure } from "@chakra-ui/react";
+import { FaMinus, FaPlus, FaQuestion } from "react-icons/fa";
 import SlotResult from "./SlotResult";
+import PaytableModal from "./PaytableModal";
 
-const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGame }) => {
+const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGame, paytable, paylines, symbolWeights }) => {
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState(null);
   const [bet, setBet] = useState(minBet);
+  const [freeSpins, setFreeSpins] = useState(0);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const changeBet = (amount) => {
     const newBet = bet + amount;
@@ -16,9 +19,13 @@ const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGa
   };
 
   const spin = () => {
-    if (balance >= bet) {
+    if (balance >= bet || freeSpins > 0) {
       setSpinning(true);
-      setBalance(balance - bet);
+      if (freeSpins === 0) {
+        setBalance(balance - bet);
+      } else {
+        setFreeSpins(freeSpins - 1);
+      }
       setTimeout(() => {
         setSpinning(false);
         const reels = spinReels();
@@ -27,17 +34,29 @@ const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGa
         if (result.winnings > 0) {
           setBalance(balance + result.winnings);
         }
+        if (result.freeSpins > 0) {
+          setFreeSpins(freeSpins + result.freeSpins);
+        }
       }, 1000);
     }
   };
 
   const spinReels = () => {
-    const symbols = ["A", "B", "C", "D", "E"];
+    
     const reels = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
       const reel = [];
       for (let j = 0; j < 3; j++) {
-        reel.push(symbols[Math.floor(Math.random() * symbols.length)]);
+        let rand = Math.random();
+        let symbol;
+        for (let k = 0; k < symbolWeights.length; k++) {
+          rand -= symbolWeights[k];
+          if (rand < 0) {
+            symbol = String.fromCharCode(65 + k);
+            break;
+          }
+        }
+        reel.push(symbol);
       }
       reels.push(reel);
     }
@@ -45,35 +64,43 @@ const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGa
   };
 
   const calculateResult = (reels, bet, bonusGame) => {
-    const lines = [
-      [reels[0][0], reels[1][0], reels[2][0]],
-      [reels[0][1], reels[1][1], reels[2][1]],
-      [reels[0][2], reels[1][2], reels[2][2]],
-      [reels[0][0], reels[1][1], reels[2][2]],
-      [reels[0][2], reels[1][1], reels[2][0]],
-    ];
-    const winningLines = lines.filter((line) => line.every((symbol) => symbol === line[0]));
-    const winnings = winningLines.length * bet;
-    let message = winnings > 0 ? `Win $${winnings}!` : "Lose!";
-    if (bonusGame && Math.random() < 0.1) {
-      message += " Bonus game triggered!";
+    let winnings = 0;
+    let freeSpins = 0;
+    for (const payline of paylines) {
+      const symbols = payline.map(([reel, row]) => reels[reel][row]);
+      for (const [combination, value] of paytable) {
+        if (symbols.slice(0, combination.length).join("") === combination) {
+          winnings += value * bet;
+          break;
+        }
+      }
     }
-    return { reels, winnings, message };
+    if (bonusGame && reels.flat().filter((symbol) => symbol === "S").length >= 3) {
+      freeSpins = 10;
+    }
+    return { reels, winnings, freeSpins };
   };
 
   return (
     <Box p={4} borderWidth={1} borderRadius="lg">
-      <Heading size="md">{name}</Heading>
+      <HStack justify="space-between">
+        <Heading size="md">{name}</Heading>
+        <IconButton icon={<FaQuestion />} onClick={onOpen} aria-label="Paytable" variant="ghost" />
+      </HStack>
       <Image src={image} alt={name} mt={4} />
       <HStack mt={4} mb={2}>
         <IconButton icon={<FaMinus />} onClick={() => changeBet(-1)} />
         <Text fontWeight="bold">${bet}</Text>
         <IconButton icon={<FaPlus />} onClick={() => changeBet(1)} />
+        <Button onClick={() => setBet(maxBet)} size="sm">
+          Max Bet
+        </Button>
       </HStack>
       <Button onClick={spin} isLoading={spinning} colorScheme="blue" width="100%">
-        {spinning ? "Spinning..." : "Spin"}
+        {spinning ? "Spinning..." : freeSpins > 0 ? `Free Spins: ${freeSpins}` : "Spin"}
       </Button>
       {result && <SlotResult result={result} />}
+      <PaytableModal isOpen={isOpen} onClose={onClose} paytable={paytable} />
     </Box>
   );
 };
