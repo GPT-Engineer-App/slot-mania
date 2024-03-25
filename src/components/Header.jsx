@@ -27,8 +27,11 @@ const Header = ({ user, balance }) => {
               <Button as={Link} to="/login" colorScheme="blue" mr={4}>
                 Login
               </Button>
-              <Button as={Link} to="/register" colorScheme="green">
+              <Button as={Link} to="/register" colorScheme="green" mr={4}>
                 Sign Up
+              </Button>
+              <Button as={Link} to="/promotions" colorScheme="orange">
+                Promotions
               </Button>
             </>
           )}

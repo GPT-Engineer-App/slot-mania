@@ -7,7 +7,9 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Account from "./pages/Account.jsx";
 import Leaderboard from "./pages/Leaderboard.jsx";
+import Promotions from "./pages/Promotions.jsx";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,7 +26,9 @@ function App() {
         <Route path="/register" element={<Register setUser={setUser} />} />
         <Route path="/account" element={<Account user={user} balance={balance} />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/promotions" element={<Promotions />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
