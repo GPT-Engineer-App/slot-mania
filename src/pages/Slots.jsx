@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { Box, Heading, Grid, Text } from "@chakra-ui/react";
 import Nav from "../components/Nav";
-import { Box, Heading, Grid, Text, useColorModeValue } from "@chakra-ui/react";
 import SlotMachine from "../components/SlotMachine";
-import { motion } from "framer-motion";
 
 const Slots = ({ balance, setBalance }) => {
   return (

@@ -20,7 +20,7 @@ const Index = () => {
               Play Slots
             </Button>
 
-            <Button as={Link} to="/signup" colorScheme="blue" size="lg" shadow="lg">
+            <Button as={Link} to="/register" colorScheme="blue" size="lg" shadow="lg">
               Sign Up
             </Button>
           </Box>

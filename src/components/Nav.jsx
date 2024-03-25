@@ -1,16 +1,21 @@
 import React from "react";
 import { Box, Stack } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
     <Box bg="gray.700">
       <Box maxW="6xl" mx="auto" px={4}>
         <Stack direction="row" spacing={8} py={4}>
-          <Link to="/">Home</Link>
-          <Link to="/slots">Slots</Link>
-          <Link to="/slots">Slots</Link>
-          <Link to="/payments">Payments</Link>
+          <NavLink to="/" style={({ isActive }) => (isActive ? { textDecoration: "underline" } : undefined)}>
+            Home
+          </NavLink>
+          <NavLink to="/slots" style={({ isActive }) => (isActive ? { textDecoration: "underline" } : undefined)}>
+            Slots
+          </NavLink>
+          <NavLink to="/payments" style={({ isActive }) => (isActive ? { textDecoration: "underline" } : undefined)}>
+            Payments
+          </NavLink>
         </Stack>
       </Box>
     </Box>

@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Index />} />
         <Route path="/slots" element={<Slots user={user} balance={balance} setBalance={setBalance} favorites={favorites} setFavorites={setFavorites} />} />
-        <Route path="/favorites" element={<Favorites favorites={favorites} />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/payments" element={<Payments user={user} balance={balance} setBalance={setBalance} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register setUser={setUser} />} />
