@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import LiveChat from "./LiveChat";
 
 const Header = ({ user, balance }) => {
   return (
@@ -9,7 +10,7 @@ const Header = ({ user, balance }) => {
         <Heading as={Link} to="/" color="white">
           Double Diamond Casino
         </Heading>
-        <Box>
+        <Box display="flex" alignItems="center">
           {user ? (
             <>
               <Text color="white" mr={4} display="inline-block">
@@ -18,7 +19,7 @@ const Header = ({ user, balance }) => {
               <Button as={Link} to="/account" colorScheme="blue" mr={4}>
                 Account
               </Button>
-              <Text color="white" display="inline-block">
+              <Text color="white" display="inline-block" mr={4}>
                 Balance: ${balance.toFixed(2)}
               </Text>
             </>
@@ -30,11 +31,12 @@ const Header = ({ user, balance }) => {
               <Button as={Link} to="/register" colorScheme="green" mr={4}>
                 Sign Up
               </Button>
-              <Button as={Link} to="/promotions" colorScheme="orange">
+              <Button as={Link} to="/promotions" colorScheme="orange" mr={4}>
                 Promotions
               </Button>
             </>
           )}
+          <LiveChat />
         </Box>
       </Box>
     </Box>
