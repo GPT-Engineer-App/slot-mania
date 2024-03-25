@@ -22,7 +22,7 @@ function App() {
       <Header user={user} balance={balance} />
       <Routes>
         <Route exact path="/" element={<Index />} />
-        <Route path="/slots" element={<Slots user={user} balance={balance} setBalance={setBalance} favorites={favorites} setFavorites={setFavorites} />} />
+        <Route path="/slots" element={<Slots balance={balance} setBalance={setBalance} />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/payments" element={<Payments user={user} balance={balance} setBalance={setBalance} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
