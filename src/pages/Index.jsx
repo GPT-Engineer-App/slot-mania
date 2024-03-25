@@ -78,19 +78,28 @@ const Index = () => {
           <SimpleGrid columns={2} spacing={10} mb={20}>
             <Box bg="white" p={6} borderRadius="lg" shadow="lg">
               <Text fontSize="xl" mb={4}>
-                "I never believed in online casinos until I tried 5 Gringos. I won $10,000 on my first day! This site is the real deal."
+                "I've been playing at Double Diamond for months and I'm consistently impressed by the variety and quality of the slots. The bonuses and promotions are great too!"
               </Text>
               <Text fontSize="lg" fontWeight="bold">
-                - John D.
+                - Miguel R.
               </Text>
             </Box>
 
             <Box bg="white" p={6} borderRadius="lg" shadow="lg">
               <Text fontSize="xl" mb={4}>
-                "The slot selection at 5 Gringos is incredible. There's always a new and exciting game to try out. I'm hooked!"
+                "Double Diamond has quickly become my go-to online casino. The user experience is top-notch and I always feel like I have a fair shot at winning big."
               </Text>
               <Text fontSize="lg" fontWeight="bold">
-                - Sarah K.
+                - Natalie P.
+              </Text>
+            </Box>
+
+            <Box bg="white" p={6} borderRadius="lg" shadow="lg">
+              <Text fontSize="xl" mb={4}>
+                "I love the immersive themes and bonus features of the slots at Double Diamond. It's the most fun I've had gambling online!"
+              </Text>
+              <Text fontSize="lg" fontWeight="bold">
+                - Rashid S.
               </Text>
             </Box>
           </SimpleGrid>
