@@ -4,7 +4,7 @@ import { FaMinus, FaPlus, FaQuestion } from "react-icons/fa";
 import SlotResult from "./SlotResult";
 import PaytableModal from "./PaytableModal";
 
-const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGame, paytable, paylines, symbolWeights }) => {
+const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, paytable, paylines, symbolWeights }) => {
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState(null);
   const [bet, setBet] = useState(minBet);
@@ -29,7 +29,7 @@ const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGa
       setTimeout(() => {
         setSpinning(false);
         const reels = spinReels();
-        const result = calculateResult(reels, bet, bonusGame);
+        const result = calculateResult(reels, bet);
         setResult(result);
         if (result.winnings > 0) {
           setBalance(balance + result.winnings);
@@ -62,7 +62,7 @@ const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGa
     return reels;
   };
 
-  const calculateResult = (reels, bet, bonusGame) => {
+  const calculateResult = (reels, bet) => {
     let winnings = 0;
     let freeSpins = 0;
     for (const payline of paylines) {
@@ -74,9 +74,7 @@ const SlotMachine = ({ name, image, balance, setBalance, minBet, maxBet, bonusGa
         }
       }
     }
-    if (bonusGame && reels.flat().filter((symbol) => symbol === "S").length >= 3) {
-      freeSpins = 10;
-    }
+
     return { reels, winnings, freeSpins };
   };
 
