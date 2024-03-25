@@ -16,11 +16,9 @@ const Index = () => {
           </Text>
 
           <Box textAlign="center">
-            <Link to="/slots">
-              <Button colorScheme="green" size="lg" mr={4} shadow="lg">
-                Play Slots
-              </Button>
-            </Link>
+            <Button as={Link} to="/slots" colorScheme="green" size="lg" mr={4} shadow="lg">
+              Play Slots
+            </Button>
 
             <Button as={Link} to="/register" colorScheme="blue" size="lg" shadow="lg">
               Sign Up
