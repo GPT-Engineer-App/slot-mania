@@ -2,12 +2,15 @@ import React from "react";
 import { Box, Flex, Spacer, Image, Link } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { FaGlobe } from "react-icons/fa";
+import LiveChat from "./LiveChat";
 
 const Header = ({ user, balance }) => {
   return (
     <Box bg="gray.900" py={4}>
       <Flex maxW="6xl" mx="auto" px={4} align="center">
-        <Image src="/logo.png" alt="5 Gringos Casino" h={8} />
+        <Link as={RouterLink} to="/">
+          <Image src="/logo.png" alt="5 Gringos Casino" h={8} />
+        </Link>
         <Spacer />
         <Link as={RouterLink} to="/casino" color="white" fontWeight="bold" mx={4}>
           Casino
@@ -40,11 +43,12 @@ const Header = ({ user, balance }) => {
             <Link as={RouterLink} to="/login" color="white" fontWeight="bold" mr={4}>
               Login
             </Link>
-            <Link as={RouterLink} to="/signup" color="white" fontWeight="bold">
+            <Link as={RouterLink} to="/register" color="white" fontWeight="bold">
               Sign Up
             </Link>
           </>
         )}
+        <LiveChat />
       </Flex>
     </Box>
   );

@@ -9,6 +9,7 @@ import Leaderboard from "./pages/Leaderboard.jsx";
 import Promotions from "./pages/Promotions.jsx";
 import VIP from "./pages/VIP.jsx";
 import Favorites from "./pages/Favorites.jsx";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -22,6 +23,7 @@ function App() {
       <Header user={user} balance={balance} />
       <Routes>
         <Route exact path="/" element={<Index />} />
+        
         <Route path="/slots" element={<Slots balance={balance} setBalance={setBalance} favorites={favorites} setFavorites={setFavorites} />} />
         <Route path="/favorites" element={<Favorites favorites={favorites} />} />
         <Route path="/vip" element={<VIP />} />
@@ -30,6 +32,7 @@ function App() {
         <Route path="/account" element={<Account user={user} balance={balance} setBalance={setBalance} />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/promotions" element={<Promotions />} />
+        
       </Routes>
       <Footer />
     </Router>
