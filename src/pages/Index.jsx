@@ -16,7 +16,7 @@ const Index = () => {
           </Text>
 
           <Box textAlign="center">
-            <Button as={Link} to="/slots" colorScheme="green" size="lg" mr={4} shadow="lg">
+            <Button as={Link} to="/slots" colorScheme="green" size="lg" mr={4}>
               Play Slots
             </Button>
 
