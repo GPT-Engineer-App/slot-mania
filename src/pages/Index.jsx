@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Index = () => {
   return (
     <Box>
-      <Box bgImage="url('https://images.unsplash.com/photo-1603190287605-e6ade32fa852?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')" bgPosition="center" bgRepeat="no-repeat" bgSize="cover" h="100vh" display="flex" alignItems="center">
+      <Box bgImage="url('https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')" bgPosition="center" bgRepeat="no-repeat" bgSize="cover" h="100vh" display="flex" alignItems="center">
         <Container maxW="container.lg">
           <Heading as="h1" size="3xl" mb={4} textAlign="center" textShadow="0 0 20px black" color="white">
             Experience the Thrill of Double Diamond Casino
