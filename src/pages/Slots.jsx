@@ -516,10 +516,123 @@ const Slots = ({ balance, setBalance }) => {
           ]}
           symbolWeights={[0.4, 0.3, 0.2, 0.1]}
         />
-        <SlotMachine name="The Dog House" image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjB0aGUlMjBkb2clMjBob3VzZXxlbnwwfHx8fDE3MTEwNzE0NjB8MA&ixlib=rb-4.0.3&q=80&w=1080" />
-        <SlotMachine name="San Quentin" image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjBzYW4lMjBxdWVudGlufGVufDB8fHx8MTcxMTA3MTQ2MHww&ixlib=rb-4.0.3&q=80&w=1080" />
-        <SlotMachine name="The Wild Machine" image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjB0aGUlMjB3aWxkJTIwbWFjaGluZXxlbnwwfHx8fDE3MTEwNzE0NjB8MA&ixlib=rb-4.0.3&q=80&w=1080" />
-        <SlotMachine name="Narcos" image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjBuYXJjb3N8ZW58MHx8fHwxNzExMDcxNDYwfDA&ixlib=rb-4.0.3&q=80&w=1080" />
+        <SlotMachine
+          name="The Dog House"
+          image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjB0aGUlMjBkb2clMjBob3VzZXxlbnwwfHx8fDE3MTEwNzE0NjB8MA&ixlib=rb-4.0.3&q=80&w=1080"
+          balance={balance}
+          setBalance={setBalance}
+          minBet={0.2}
+          maxBet={100}
+          paytable={[
+            ["AAA", 100],
+            ["BBB", 50],
+            ["CCC", 25],
+            ["DDD", 10],
+          ]}
+          paylines={[
+            [
+              [0, 0],
+              [1, 0],
+              [2, 0],
+              [3, 0],
+              [4, 0],
+            ],
+            [
+              [0, 1],
+              [1, 1],
+              [2, 1],
+              [3, 1],
+              [4, 1],
+            ],
+            [
+              [0, 2],
+              [1, 2],
+              [2, 2],
+              [3, 2],
+              [4, 2],
+            ],
+          ]}
+          symbolWeights={[0.4, 0.3, 0.2, 0.1]}
+        />
+        <SlotMachine
+          name="San Quentin"
+          image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjBzYW4lMjBxdWVudGlufGVufDB8fHx8MTcxMTA3MTQ2MHww&ixlib=rb-4.0.3&q=80&w=1080"
+          balance={balance}
+          setBalance={setBalance}
+          minBet={0.5}
+          maxBet={250}
+          paytable={[
+            ["AAA", 200],
+            ["BBB", 100],
+            ["CCC", 50],
+            ["DDD", 25],
+          ]}
+          paylines={[
+            [
+              [0, 0],
+              [1, 0],
+              [2, 0],
+              [3, 0],
+              [4, 0],
+            ],
+            [
+              [0, 1],
+              [1, 1],
+              [2, 1],
+              [3, 1],
+              [4, 1],
+            ],
+          ]}
+          symbolWeights={[0.4, 0.3, 0.2, 0.1]}
+        />
+        <SlotMachine
+          name="The Wild Machine"
+          image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjB0aGUlMjB3aWxkJTIwbWFjaGluZXxlbnwwfHx8fDE3MTEwNzE0NjB8MA&ixlib=rb-4.0.3&q=80&w=1080"
+          balance={balance}
+          setBalance={setBalance}
+          minBet={0.1}
+          maxBet={50}
+          paytable={[
+            ["AAA", 100],
+            ["BBB", 50],
+            ["CCC", 25],
+            ["DDD", 10],
+          ]}
+          paylines={[
+            [
+              [0, 0],
+              [1, 0],
+              [2, 0],
+              [3, 0],
+              [4, 0],
+            ],
+          ]}
+          symbolWeights={[0.4, 0.3, 0.2, 0.1]}
+        />
+        <SlotMachine
+          name="Narcos"
+          image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjBuYXJjb3N8ZW58MHx8fHwxNzExMDcxNDYwfDA&ixlib=rb-4.0.3&q=80&w=1080"
+          balance={balance}
+          setBalance={setBalance}
+          minBet={0.25}
+          maxBet={125}
+          paytable={[
+            ["AAA", 150],
+            ["BBB", 75],
+            ["CCC", 40],
+            ["DDD", 20],
+          ]}
+          paylines={[
+            [
+              [0, 0],
+              [1, 1],
+              [2, 2],
+              [3, 1],
+              [4, 0],
+            ],
+          ]}
+          symbolWeights={[0.4, 0.3, 0.2, 0.1]}
+        />
         <SlotMachine
           name="Fury of Ra"
           image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjBmdXJ5JTIwb2YlMjByYXxlbnwwfHx8fDE3MTEwNzE0NjB8MA&ixlib=rb-4.0.3&q=80&w=1080"
@@ -558,7 +671,7 @@ const Slots = ({ balance, setBalance }) => {
           ]}
           symbolWeights={[0.4, 0.3, 0.2, 0.1]}
         />
-        <SlotMachine 
+        <SlotMachine
           name="The Dog House"
           image="https://images.unsplash.com/photo-1605459862899-f506150a7a80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGdhbWUlMjB0aGUlMjBkb2clMjBob3VzZXxlbnwwfHx8fDE3MTEwNzE0NjB8MA&ixlib=rb-4.0.3&q=80&w=1080"
           balance={balance}
